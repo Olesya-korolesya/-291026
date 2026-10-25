@@ -1,0 +1,79 @@
+<!--&lt;!&ndash;#Задание 2&ndash;&gt;-->
+<!--<!DOCTYPE html>-->
+<!--{% load widget_tweaks %}-->
+<!--<html lang="ru">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <title>Обратная связь</title>-->
+
+<!--    <link href="https://jsdelivr.net" rel="stylesheet">-->
+<!--</head>-->
+<!--<body class="bg-light">-->
+
+<!--<div class="container mt-5">-->
+<!--    <div class="row justify-content-center">-->
+<!--        <div class="col-md-6">-->
+<!--            <div class="card shadow">-->
+<!--                <div class="card-body">-->
+<!--                    <h3 class="card-title text-center mb-4">Напишите сообщение</h3>-->
+
+<!--                    {# Вывод всплывающих уведомлений Django (если они есть) #}-->
+<!--                    {% if messages %}-->
+<!--                        {% for message in messages %}-->
+<!--                            <div class="alert alert-{{ message.tags }}">-->
+<!--                                {{ message }}-->
+<!--                            </div>-->
+<!--                        {% endfor %}-->
+<!--                    {% endif %}-->
+
+<!--                    {# НАЧАЛО ФОРМЫ #}-->
+<!--                    <form action="{% url 'blog:feedback_url' %}" method="post" novalidate>-->
+<!--                        {% csrf_token %}-->
+
+<!--                        {# Цикл обходит каждое поле формы #}-->
+<!--                        {% for field in form %}-->
+<!--                            <div class="mb-3">-->
+<!--                                {# 1. Название поля (Label) #}-->
+<!--                                <label for="{{ field.id_for_label }}" class="form-label">-->
+<!--                                    {{ field.label }}-->
+<!--                                </label>-->
+
+<!--                                {# 2. Поле ввода (Виджет) с динамическим классом ошибки #}-->
+<!--                                {% if field.errors %}-->
+<!--                                    {{ field|add_class:"form-control is-invalid" }}-->
+<!--                                {% else %}-->
+<!--                                    {{ field|add_class:"form-control" }}-->
+<!--                                {% endif %}-->
+
+<!--                                {# Подсказка к полю (Help Text) #}-->
+<!--                                {% if field.help_text %}-->
+<!--                                    <div class="form-text">{{ field.help_text }}</div>-->
+<!--                                {% endif %}-->
+
+<!--                                {# 3. Блок ошибок для конкретного поля #}-->
+<!--                                {% if field.errors %}-->
+<!--                                    <div class="invalid-feedback">-->
+<!--                                        {% for error in field.errors %}-->
+<!--                                            <div>{{ error }}</div>-->
+<!--                                        {% endfor %}-->
+<!--                                    </div>-->
+<!--                                {% endif %}-->
+<!--                            </div>-->
+<!--                        {% endfor %}-->
+
+<!--                        {# Кнопка отправки внутри формы #}-->
+<!--                        <button type="submit" class="btn btn-primary w-100 mt-3">Отправить</button>-->
+<!--                    </form>-->
+<!--                    {# КОНЕЦ ФОРМЫ #}-->
+
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+<!--</body>-->
+<!--</html>-->
+
+
